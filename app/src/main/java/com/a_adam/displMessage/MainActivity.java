@@ -8,11 +8,12 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import com.a_adam.displMessage.Activities.AddressActivity;
 import com.a_adam.displMessage.FlatOn.FlatOn;
 import com.a_adam.displMessage.Storage.FlatOnStorage;
-import com.a_adam.displMessage.activities.DiapasonActivity;
-import com.a_adam.displMessage.activities.EntrancesListActivity;
-import com.a_adam.displMessage.activities.FlatActivity;
+import com.a_adam.displMessage.Activities.DiapasonActivity;
+import com.a_adam.displMessage.Activities.EntrancesListActivity;
+import com.a_adam.displMessage.Activities.FlatActivity;
 
 public class MainActivity extends AppCompatActivity {
     private final FlatOn state = FlatOnStorage.getFlatOn();
@@ -40,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         startActivityWith(EntrancesListActivity.class);
     }
 
-    public void onBottomMenuSaveButtonClick(View view) { Log.d("onClick","onBottomMenuSaveButtonClick"); }
+    public void onBottomMenuSaveButtonClick(View view) { startActivityWith(AddressActivity.class); }
 
     public void onDiapasonButtonClick(View view) { startActivityWith(DiapasonActivity.class); }
 

@@ -1,15 +1,16 @@
-package com.a_adam.displMessage.activities;
+package com.a_adam.displMessage.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.a_adam.displMessage.API.FetchData;
+import com.a_adam.displMessage.MainActivity;
 import com.a_adam.displMessage.R;
 
 import org.json.JSONArray;
@@ -41,14 +42,17 @@ public class EntrancesListActivity extends AppCompatActivity {
         initializerUserList();
     }
 
+    public void onBackButtonClick(View view) {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
     public void onUpdateButtonClick(View view) {
         entranceList.clear();
-        Log.d("onClick","onUpdateButtonClick");
         ExecutorService service = Executors.newFixedThreadPool(3);
         Future<String> stringData = service.submit(new FetchData(HOST + "brand"));
         try {
-            Log.d("GET",HOST + "brand");
-//            System.out.println(stringData.get());
             JSONObject jsonObject;
             JSONArray jsonArray = null;
             try {
@@ -62,14 +66,15 @@ public class EntrancesListActivity extends AppCompatActivity {
                 String line = "";
                 for (int i = 0; i < jsonArray.length(); i++) {
                     line = new JSONObject(jsonArray.get(i).toString()).getString("name");
-                    System.out.println(line);
                     entranceList.add(line);
                 }
             } catch (JSONException e) {}
         } catch (ExecutionException e) {
         } catch (InterruptedException e) {
         }
+
         service.shutdown();
+
         mainHandler.post(() -> arrayAdapter.notifyDataSetChanged());
     }
 

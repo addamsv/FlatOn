@@ -196,42 +196,47 @@
                 android:textColor="#000000"/>
         </RelativeLayout>
 
-        <RelativeLayout
-            android:layout_width="289dp"
-            android:layout_height="72dp"
-            android:layout_marginTop="170dp">
+    </RelativeLayout>
 
+    <RelativeLayout
+        android:id="@+id/entranceListLayout"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@drawable/gradient_background"
+        >
 
-            <Button
-                android:layout_width="55dp"
-                android:layout_height="72dp"
-                android:text="сохр"
-                android:textSize="12sp"
-                android:textColor="#ffffff"
-                android:background="#333333"
-                android:onClick="addName"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentRight="true" />
-            <Button
-                android:layout_width="55dp"
-                android:layout_height="72dp"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="65dp"
-                android:text="skip"
-                android:textSize="12sp"
-                android:textColor="#ffffff"
-                android:background="#333333"
-                android:onClick="backToBD"/>
-            <Button
-                android:layout_width="55dp"
-                android:layout_height="72dp"
-                android:layout_marginLeft="5dp"
-                android:text="prev"
-                android:textSize="12sp"
-                android:textColor="#ffffff"
-                android:background="#333333"
-                android:onClick="backButton"/>
-        </RelativeLayout>
+        <Button
+            android:id="@+id/prevButtonListLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#333333"
+            android:text="back"
+            android:textColor="#ffffff"
+            android:textSize="12sp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="10dp"
+            android:onClick="onBackButtonClick"/>
+
+        <Button
+            android:id="@+id/update_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="5dp"
+            android:background="#333333"
+            android:textColor="#ffffff"
+            android:textSize="12sp"
+            android:text="ok"
+            android:onClick="onOkButtonClick"
+            />
+
     </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
