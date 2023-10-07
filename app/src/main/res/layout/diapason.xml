@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="5dp"
+    android:layout_marginRight="5dp"
+    android:layout_marginLeft="5dp"
+    android:layout_marginTop="5dp"
+    android:background="@drawable/gradient_background">
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textColor="#ffffff"
+        android:textSize="12sp"
+        android:text=" нажмите 'ДАЛЕЕ', если заранее интервал неизвестен!!! Диапазон квартир вставиться из расчёта 4кв/эт"
+        />
+
+    <RelativeLayout
+        android:id="@+id/InnerRelativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="230dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/gradient_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView">
+
+        <TextView
+            android:layout_width="360dp"
+            android:layout_height="19sp"
+            android:layout_marginTop="5dp"
+            android:textColor="#ffffff"
+            android:text=" введите промежуток квартир в подъезде"
+            />
+
+        <TextView
+            android:layout_width="30dp"
+            android:layout_height="80dp"
+            android:layout_marginLeft="130dp"
+            android:layout_marginTop="24dp"
+            android:textColor="#ffffff"
+            android:textSize="70dp"
+            android:text="-"
+            />
+
+        <EditText
+            android:id="@+id/upper_flat"
+            android:layout_width="110dp"
+            android:layout_height="70dp"
+            android:layout_marginLeft="170dp"
+            android:layout_marginTop="45dp"
+            android:background="#ffffff"
+            android:inputType="number"
+            android:maxLength="4"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textColorHint="#000000"
+            android:textSize="50sp"
+            android:text="35"
+            />
+
+        <EditText
+            android:id="@+id/lower_flat"
+            android:layout_width="110dp"
+            android:layout_height="70dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="45dp"
+            android:background="#ffffff"
+            android:inputType="number"
+            android:maxLength="4"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textColorHint="#000000"
+            android:textSize="50sp"
+            android:text="1"
+            />
+
+        <TextView
+            android:layout_width="150dp"
+            android:layout_height="15dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="130dp"
+            android:background="#00000000"
+            android:textColor="#ffffff"
+            android:textSize="9sp"
+            android:text="этажей в подъезде"
+            />
+
+        <EditText
+            android:id="@+id/stage_num"
+            android:layout_width="110dp"
+            android:layout_height="70dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="145dp"
+            android:background="#ffffff"
+            android:inputType="number"
+            android:maxLength="4"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textColorHint="#000000"
+            android:textSize="50sp"
+            android:text="9"
+            />
+        <TextView
+            android:layout_width="150dp"
+            android:layout_height="15dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="30dp"
+            android:background="#00000000"
+            android:textColor="#ffffff"
+            android:textSize="9sp"
+            android:text="начальная кв. подъезда"
+            />
+
+        <TextView
+            android:layout_width="150dp"
+            android:layout_height="15dp"
+            android:layout_marginStart="170dp"
+            android:layout_marginTop="30dp"
+            android:background="#00000000"
+            android:textColor="#ffffff"
+            android:textSize="9sp"
+            android:text="конечная кв. подъезда"
+            />
+
+<!--        <Button-->
+<!--            android:id="@+id/next_button_apartment_interval"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_alignParentEnd="true"-->
+<!--            android:layout_marginTop="145dp"-->
+<!--            android:layout_marginEnd="5dp"-->
+<!--            android:background="#333333"-->
+<!--            android:textColor="#ffffff"-->
+<!--            android:textSize="12sp"-->
+<!--            android:text="далее"-->
+<!--            />-->
+
+
+<!--        <Button-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_alignParentEnd="true"-->
+<!--            android:layout_marginTop="145dp"-->
+<!--            android:layout_marginEnd="95dp"-->
+<!--            android:background="#333333"-->
+<!--            android:textColor="#ffffff"-->
+<!--            android:textSize="12sp"-->
+<!--            android:text="skip"-->
+<!--            />-->
+
+<!--        <Button-->
+<!--            android:id="@+id/prev_button_apartment_interval"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:background="#333333"-->
+<!--            android:textColor="#ffffff"-->
+<!--            android:textSize="12sp"-->
+<!--            android:layout_marginStart="5dp"-->
+<!--            android:layout_marginTop="145dp"-->
+<!--            android:text="назад"-->
+<!--            />-->
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/InnerRelativeLayout"
+        android:textColor="#ffffff"
+        android:textSize="10sp"
+        android:text="в связи с тем, что в доме могут быть арки, магазины, разное количество квартир на этаже... математический расчёт может дать ошибку, а введённый интервал позволяет указать этаж с большой точностью!!! "
+        />
+
+    <RelativeLayout
+        android:id="@+id/resultMenu"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@drawable/gradient_background">
+
+        <Button
+            android:id="@+id/ok_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="5dp"
+            android:background="#333333"
+            android:textColor="#ffffff"
+            android:textSize="12sp"
+            android:text="ok"
+            android:onClick="onOkButtonClick"
+            />
+
+        <Button
+            android:id="@+id/skip_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="10dp"
+            android:background="#333333"
+            android:textColor="#ffffff"
+            android:textSize="12sp"
+            android:text="skip"
+            android:onClick="onSkipButtonClick"
+            />
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
