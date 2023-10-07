@@ -1,4 +1,4 @@
 # FlatOn
-Calculate The Stage Of The Flat
+Calculate The Stage Of The The Flat
 
-![img](./README_FILES/main_activity.png)
+<img src="./README_FILES/main_activity.png" width="242px" height="514px">
