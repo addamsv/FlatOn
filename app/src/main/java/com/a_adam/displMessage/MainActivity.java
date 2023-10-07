@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.a_adam.displMessage.FlatOn.FlatOn;
 import com.a_adam.displMessage.Storage.FlatOnStorage;
 import com.a_adam.displMessage.activities.DiapasonActivity;
+import com.a_adam.displMessage.activities.EntrancesListActivity;
 import com.a_adam.displMessage.activities.FlatActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -36,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onEntranceButtonClick(View view) {
-        Log.d("onClick","onEntranceButtonClick");
+        startActivityWith(EntrancesListActivity.class);
     }
 
     public void onBottomMenuSaveButtonClick(View view) { Log.d("onClick","onBottomMenuSaveButtonClick"); }
