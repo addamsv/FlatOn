@@ -1,5 +1,7 @@
 package com.a_adam.displMessage.API;
 
+import android.util.Log;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -12,19 +14,22 @@ import java.util.concurrent.Callable;
 public class FetchData implements Callable<String> {
     private volatile String value;
     private String uri;
-    public FetchData(String url) {
-        uri = url;
-    }
+    private URL url;
+
+    private HttpURLConnection httpURLConnection = null;
+    private BufferedReader bufferedReader = null;
+
+    public FetchData(String url) { uri = url; }
 
     @Override
     public String call() {
-        HttpURLConnection httpURLConnection = null;
-        BufferedReader bufferedReader = null;
         value = "";
+
         try {
-            URL url = new URL(uri);
+            url = new URL(uri);
             httpURLConnection = (HttpURLConnection) url.openConnection();
             httpURLConnection.connect();
+            Log.d("call", uri);
 
             InputStream inputStream = httpURLConnection.getInputStream();
             bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
@@ -37,8 +42,11 @@ public class FetchData implements Callable<String> {
 
             value = stringBuffer.toString();
 
+            Log.d("call", value);
         } catch (MalformedURLException e) {
+            Log.d("except", e.toString());
         } catch (IOException e) {
+            Log.d("except", e.toString());
         } finally {
             if (httpURLConnection != null) {
                 httpURLConnection.disconnect();
@@ -51,5 +59,4 @@ public class FetchData implements Callable<String> {
         }
         return value;
     }
-
 }
