@@ -32,10 +32,6 @@ import java.util.concurrent.Future;
 
 
 public class EntrancesListActivity extends AppCompatActivity {
-    private String TITLE = "name1";                // ut text
-    private String TITLE2 = "name2";              // down text
-    private String DESCRIPTION = "description";    // lower the main
-    private String ICON = "icon";                  // image that will be
     private final FlatOn state = FlatOnStorage.getFlatOn();
     private ListView listView;
     private ArrayList<String> entranceList;
@@ -90,7 +86,6 @@ public class EntrancesListActivity extends AppCompatActivity {
         listView = findViewById(R.id.entranceList);
 
 //        entranceList = new ArrayList<>();
-//
 //        arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, entranceList);
 //        listView.setAdapter(arrayAdapter);
 
@@ -98,8 +93,8 @@ public class EntrancesListActivity extends AppCompatActivity {
                 this,
                 state.getEntranceFlatsList(),
                 R.layout.list_item1,
-                new String[]{ TITLE, TITLE2, DESCRIPTION, ICON },
-                new int[]{ R.id.text1, R.id.text3, R.id.text2, R.id.img }
+                new String[] { "name1", "name2", "description", "icon" },
+                new int[] { R.id.text1, R.id.text3, R.id.text2, R.id.img }
         );
         listView.setAdapter(simpleAdapter);
     }
