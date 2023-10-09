@@ -15,23 +15,6 @@ import java.util.HashMap;
 
 // 92:12:31:47:AF:51:DA:F3:E5:23:AB:73:33:EC:0B:40:78:7D:CE:ED
 // AIzaSyA_FQLVPJL8v_TUUXKW0A8jll0IDwfIXiw
-//public interface IFlatOn {
-//    public void setUpperFlat(String upperFlat) ;
-//    public void setLowerFlat(String lowerFlat) ;
-//    public void setFloors(String floors);
-//    public void setFlatNum(String flatNum);
-//    public void setClear();
-//    public String getHowManyFlatsOnFloor();
-//    public String getNumberOfEntrance();
-//    public String getNumberOfFloor();
-//    public String getHowManyFloors();
-//    public String getUpperFlat();
-//    public String getLowerFlat();
-//    public String getFlStack();
-//    public String getFlatNum();
-//    public Boolean build();
-//    public SimpleAdapter    getEntranceFlatsList(Context context);
-//}
 
 public class FlatOn {
     private String TITLE = "name1";                // ut text
@@ -121,7 +104,8 @@ public class FlatOn {
         return flStack + "";
     }
     public String getFlatNum() { return checkOutString(flatNum); }
-    public SimpleAdapter getEntranceFlatsList(Context context) { return get(context); }
+//    public SimpleAdapter getEntranceFlatsList(Context context) { return get(context); }
+    public ArrayList<HashMap<String, Object>> getEntranceFlatsList() { return entranceList; }
 
 
 
@@ -143,10 +127,6 @@ public class FlatOn {
 
     private int howMuchFlatsOnEntranceReal() {
         return (hiFlat - dwnFlat <= 0) ? 1 : hiFlat - dwnFlat + 1;
-//        if (hiFlat - dwnFlat <= 0){
-//            return  1;
-//        }
-//        return hiFlat - dwnFlat + 1;
     }
 
     private boolean isFlatNum() { return flatNum > 0; }
@@ -188,11 +168,6 @@ public class FlatOn {
 
     private void clearListData() { entranceList.clear(); }
 
-    private SimpleAdapter get(Context context) {
-        return null;
-//        return new SimpleAdapter(context,entranceList, R.layout.list_item1,new String[]{TITLE,TITLE2, DESCRIPTION, ICON},new int[]{R.id.text1,R.id.text3, R.id.text2, R.id.img});
-    }
-
     private boolean listData() {
         // flStack = 0; #apartment equal 0; clearListData has been set up on another function
         if (hiFlat != dwnFlat) {
@@ -210,10 +185,10 @@ public class FlatOn {
 
                 if ((hFlat - apartmentsOnFloor) < dFlat) {
                     flatStackOnFloorWithinEntranceList = hFlat - dFlat + 1;
-                    putListData(i,hFlat,dFlat,flatStackOnFloorWithinEntranceList);
+                    putListData(i, hFlat, dFlat, flatStackOnFloorWithinEntranceList);
                 } else {
                     flatStackOnFloorWithinEntranceList = hFlat - dFlt + 1;
-                    putListData(i,hFlat,dFlt,flatStackOnFloorWithinEntranceList);
+                    putListData(i, hFlat, dFlt, flatStackOnFloorWithinEntranceList);
                 }
 
                 hFlat = hFlat - apartmentsOnFloor;

@@ -8,10 +8,13 @@ import android.os.Handler;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.SimpleAdapter;
 
 import com.a_adam.displMessage.API.FetchData;
+import com.a_adam.displMessage.FlatOn.FlatOn;
 import com.a_adam.displMessage.MainActivity;
 import com.a_adam.displMessage.R;
+import com.a_adam.displMessage.Storage.FlatOnStorage;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -29,6 +32,11 @@ import java.util.concurrent.Future;
 
 
 public class EntrancesListActivity extends AppCompatActivity {
+    private String TITLE = "name1";                // ut text
+    private String TITLE2 = "name2";              // down text
+    private String DESCRIPTION = "description";    // lower the main
+    private String ICON = "icon";                  // image that will be
+    private final FlatOn state = FlatOnStorage.getFlatOn();
     private ListView listView;
     private ArrayList<String> entranceList;
     private ArrayAdapter<String> arrayAdapter;
@@ -81,9 +89,18 @@ public class EntrancesListActivity extends AppCompatActivity {
     private void initializerUserList() {
         listView = findViewById(R.id.entranceList);
 
-        entranceList = new ArrayList<>();
+//        entranceList = new ArrayList<>();
+//
+//        arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, entranceList);
+//        listView.setAdapter(arrayAdapter);
 
-        arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, entranceList);
-        listView.setAdapter(arrayAdapter);
+        SimpleAdapter simpleAdapter = new SimpleAdapter(
+                this,
+                state.getEntranceFlatsList(),
+                R.layout.list_item1,
+                new String[]{ TITLE, TITLE2, DESCRIPTION, ICON },
+                new int[]{ R.id.text1, R.id.text3, R.id.text2, R.id.img }
+        );
+        listView.setAdapter(simpleAdapter);
     }
 }
