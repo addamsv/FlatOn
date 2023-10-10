@@ -4,22 +4,16 @@ import com.a_adam.displMessage.Utils.StringUtil;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-// 92:12:31:47:AF:51:DA:F3:E5:23:AB:73:33:EC:0B:40:78:7D:CE:ED
-// AIzaSyA_FQLVPJL8v_TUUXKW0A8jll0IDwfIXiw
-
 public class FlatOn {
     private int hiFlat;
     private int dwnFlat;
     private int flatNum;
-    private int floor;           // floor that we need!
-    private int floorsNum = 9;       // how many stages entrance have
-    private int apartmentsOnFloor;  // how many apartments on the stage
-    private int entrance;        // hiFlat / deltaFlat
+    private int floor;
+    private int floorsNum = 9;
+    private int apartmentsOnFloor;
+    private int entrance;
     private int flStack;
     private ArrayList<HashMap<String, Object>> entranceList = new ArrayList<HashMap<String, Object>>();
-
-
-//    public
 
     public void build() {
         if (isFlatNumBelongToDiapason()){
@@ -48,11 +42,9 @@ public class FlatOn {
         this.floorsNum = 0;
         this.flatNum = 0;
     }
-
     public void setUpperFlat(String upperFlat) {
         this.hiFlat = Integer.parseInt(checkStr(upperFlat));
     }
-
     public void setLowerFlat(String lowerFlat) {
         this.dwnFlat = Integer.parseInt(checkStr(lowerFlat));
     }
@@ -62,7 +54,6 @@ public class FlatOn {
     public void setFlatNum(String flatNum) {
         this.flatNum = Integer.parseInt(checkStr(flatNum));
     }
-
     public String getHowManyFlatsOnFloor(){
         return apartmentsOnFloor + "";
     }
@@ -85,9 +76,6 @@ public class FlatOn {
     public String getFlatNum() { return checkOutString(flatNum); }
     public ArrayList<HashMap<String, Object>> getEntranceFlatsList() { return entranceList; }
 
-
-
-//    private
 
 
     private String checkStr(String val) { return (StringUtil.isEmpty(val)) ? "0" : val; }
@@ -132,10 +120,10 @@ public class FlatOn {
 
     private void putListData(int i, int hFlat, int dFlat, int flatStackOnFloor) {
         HashMap<String, Object> hashMapForEntranceList = new HashMap<String, Object>();
-        hashMapForEntranceList.put("name1", hFlat);
-        hashMapForEntranceList.put("name2", dFlat);
-        hashMapForEntranceList.put("description", flatStackOnFloor + " кв/эт");
-        hashMapForEntranceList.put("icon", i + "" );
+        hashMapForEntranceList.put("hFlat", hFlat);
+        hashMapForEntranceList.put("dFlat", dFlat);
+        hashMapForEntranceList.put("flatStackOnFloor", flatStackOnFloor + " кв/эт");
+        hashMapForEntranceList.put("floorNum", i + "" );
         entranceList.add(hashMapForEntranceList);
     }
 

@@ -199,7 +199,7 @@
     </RelativeLayout>
 
     <RelativeLayout
-        android:id="@+id/entranceListLayout"
+        android:id="@+id/bottomMenuLayout"
         android:layout_width="0dp"
         android:layout_height="70dp"
         android:layout_marginStart="10dp"
@@ -239,4 +239,18 @@
 
     </RelativeLayout>
 
+    <ListView
+        android:id="@+id/houseList"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="25dp"
+        android:layout_marginTop="25dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomMenuLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
+        ></ListView>
 </androidx.constraintlayout.widget.ConstraintLayout>

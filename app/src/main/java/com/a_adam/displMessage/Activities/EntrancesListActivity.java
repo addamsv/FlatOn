@@ -26,18 +26,9 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
-// https://abhiandroid.com/ui/listview
-// https://www.youtube.com/watch?v=5lNQLR53UtY
-// post request: https://stackoverflow.com/questions/3324717/sending-http-post-request-in-java
-
-
 public class EntrancesListActivity extends AppCompatActivity {
     private final FlatOn state = FlatOnStorage.getFlatOn();
     private ListView listView;
-    private ArrayList<String> entranceList;
-    private ArrayAdapter<String> arrayAdapter;
-    private Handler mainHandler = new Handler();
-    private static final String HOST = "http://10.0.2.2:5500/api/"; // 127.0.0.1 -> 10.0.0.2
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,50 +43,17 @@ public class EntrancesListActivity extends AppCompatActivity {
         finish();
     }
 
-    public void onUpdateButtonClick(View view) {
-        entranceList.clear();
-        ExecutorService service = Executors.newFixedThreadPool(3);
-        Future<String> stringData = service.submit(new FetchData(HOST + "brand"));
-        try {
-            JSONObject jsonObject;
-            JSONArray jsonArray = null;
-            try {
-                jsonObject = new JSONObject(stringData.get());
-                jsonArray = jsonObject.getJSONArray("rows");
-            } catch (JSONException e) {}
-            try {
-                if (jsonArray == null) {
-                    jsonArray = new JSONArray(stringData.get());
-                }
-                String line = "";
-                for (int i = 0; i < jsonArray.length(); i++) {
-                    line = new JSONObject(jsonArray.get(i).toString()).getString("name");
-                    entranceList.add(line);
-                }
-            } catch (JSONException e) {}
-        } catch (ExecutionException e) {
-        } catch (InterruptedException e) {
-        }
-
-        service.shutdown();
-
-        mainHandler.post(() -> arrayAdapter.notifyDataSetChanged());
-    }
-
     private void initializerUserList() {
         listView = findViewById(R.id.entranceList);
-
-//        entranceList = new ArrayList<>();
-//        arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, entranceList);
-//        listView.setAdapter(arrayAdapter);
 
         SimpleAdapter simpleAdapter = new SimpleAdapter(
                 this,
                 state.getEntranceFlatsList(),
                 R.layout.list_item1,
-                new String[] { "name1", "name2", "description", "icon" },
-                new int[] { R.id.text1, R.id.text3, R.id.text2, R.id.img }
+                new String[] { "hFlat", "dFlat", "flatStackOnFloor", "floorNum" },
+                new int[] { R.id.hFlat, R.id.dFlat, R.id.flatStackOnFloor, R.id.floorNum }
         );
+
         listView.setAdapter(simpleAdapter);
     }
 }
