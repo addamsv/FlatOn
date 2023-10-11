@@ -1,5 +1,6 @@
 package com.a_adam.displMessage.Activities;
 
+import static com.a_adam.displMessage.API.Constants.BRAND_ROUTE;
 import static com.a_adam.displMessage.API.Constants.HOST_NAME;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,10 +13,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.a_adam.displMessage.API.FetchData;
-import com.a_adam.displMessage.FlatOn.FlatOn;
 import com.a_adam.displMessage.MainActivity;
 import com.a_adam.displMessage.R;
-import com.a_adam.displMessage.Storage.FlatOnStorage;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -45,7 +44,7 @@ public class AddressActivity extends AppCompatActivity {
     public void onOkButtonClick(View view) {
         houseList.clear();
         ExecutorService service = Executors.newFixedThreadPool(3);
-        Future<String> stringData = service.submit(new FetchData(HOST_NAME + "brand"));
+        Future<String> stringData = service.submit(new FetchData(HOST_NAME + BRAND_ROUTE));
         try {
             JSONObject jsonObject;
             JSONArray jsonArray = null;
