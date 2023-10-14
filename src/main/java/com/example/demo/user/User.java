@@ -1,11 +1,6 @@
 package com.example.demo.user;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.SequenceGenerator;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "`user`")
@@ -26,8 +21,10 @@ public class User {
 	
 	private String email;
 
-	public User() {
-	}
+	@Transient
+	private String field;
+
+	public User() {}
 	
 	public User(String name, String email) {
 		this.name = name;
@@ -68,4 +65,8 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
+	public String getField() { return field; }
+
+	public void setField(String field) { this.field = field; }
 }
