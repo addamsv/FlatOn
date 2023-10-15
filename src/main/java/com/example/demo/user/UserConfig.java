@@ -17,7 +17,7 @@ public class UserConfig {
             );
 
             User alexandr = new User(
-                    "alex",
+                    "Alex",
                     "a@a.a"
             );
 
