@@ -1,4 +1,4 @@
-package com.example.demo.user;
+package com.example.demo.users;
 
 import java.util.List;
 import java.util.Objects;
@@ -9,41 +9,39 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service // the same @Component
-public class UserService {
-	private final UserRepository userRepository;
+public class UsersService {
+	private final UsersRepository usersRepository;
 
 	@Autowired
-	public UserService(UserRepository userRepository) {
-		this.userRepository = userRepository;
+	public UsersService(UsersRepository usersRepository) {
+		this.usersRepository = usersRepository;
 	}
 
-	public List<User> getUsers() { return userRepository.findAll(); }
+	public List<Users> getUsers() { return usersRepository.findAll(); }
 
-	public void addUser(User user) {
-		Optional<User> userCandidate = userRepository.findUserByEmail(user.getEmail());
+	public void addUser(Users user) {
+		Optional<Users> userCandidate = usersRepository.findUserByEmail(user.getEmail());
 
 		if (userCandidate.isPresent()) {
 			throw new IllegalStateException("email is already taken");
 		}
 
-		userRepository.save(user);
-
-		System.out.println(user);
+		usersRepository.save(user);
 	}
 
 	public void dellUser(Long userId) {
-		boolean isUserCandidateExist = userRepository.existsById(userId);
+		boolean isUserCandidateExist = usersRepository.existsById(userId);
 
 		if (!isUserCandidateExist) {
 			throw new IllegalStateException("user does not exist");
 		}
 
-		userRepository.deleteById(userId);
+		usersRepository.deleteById(userId);
 	}
 
 	@Transactional
 	public void updateUser(Long userId, String name, String email) {
-		User user = userRepository.findById(userId)
+		Users user = usersRepository.findById(userId)
 				.orElseThrow(() -> new IllegalStateException("user does not exist"));
 
 		if (
@@ -60,7 +58,7 @@ public class UserService {
 				!Objects.equals(user.getEmail(), email)
 		) {
 
-			Optional<User> userCandidate = userRepository.findUserByEmail(email);
+			Optional<Users> userCandidate = usersRepository.findUserByEmail(email);
 
 			if (userCandidate.isPresent()) {
 				throw new IllegalStateException("email is already taken");

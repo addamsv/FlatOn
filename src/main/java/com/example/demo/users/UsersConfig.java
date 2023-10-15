@@ -1,4 +1,4 @@
-package com.example.demo.user;
+package com.example.demo.users;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
@@ -7,21 +7,21 @@ import org.springframework.context.annotation.Configuration;
 import java.util.List;
 
 @Configuration
-public class UserConfig {
+public class UsersConfig {
     @Bean
-    CommandLineRunner commandLineRunner(UserRepository userRepository) {
+    CommandLineRunner commandLineRunner(UsersRepository usersRepository) {
         return args -> {
-            User sergey = new User(
+            Users sergey = new Users(
                     "Sergey",
                     "a@a.a"
             );
 
-            User alexandr = new User(
+            Users alexandr = new Users(
                     "Alex",
                     "a@a.a"
             );
 
-            userRepository.saveAll(List.of(sergey, alexandr));
+            usersRepository.saveAll(List.of(sergey, alexandr));
         };
     }
 }

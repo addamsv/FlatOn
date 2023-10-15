@@ -1,4 +1,4 @@
-package com.example.demo.user;
+package com.example.demo.users;
 
 import java.util.List;
 
@@ -7,27 +7,27 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("api/v1/users")
-public class UserController {
-	private final UserService userService;
+public class UsersController {
+	private final UsersService usersService;
 
 	@Autowired
-	public UserController(UserService userService) {
-		this.userService = userService;
+	public UsersController(UsersService usersService) {
+		this.usersService = usersService;
 	}
 
 	@GetMapping
-	public List<User> getUsers() {
-		return userService.getUsers();
+	public List<Users> getUsers() {
+		return usersService.getUsers();
 	}
 
 	@PostMapping
-	public void addUser(@RequestBody User user) {
-		userService.addUser(user);
+	public void addUser(@RequestBody Users user) {
+		usersService.addUser(user);
 	}
 
 	@DeleteMapping(path = "{userId}")
 	public void dellUser(@PathVariable("userId") Long id) {
-		userService.dellUser(id);
+		usersService.dellUser(id);
 	}
 
 	@PutMapping(path = "{userId}")
@@ -36,6 +36,6 @@ public class UserController {
 			@RequestParam(required = false) String name,
 			@RequestParam(required = false) String email
 	) {
-		userService.updateUser(id, name, email);
+		usersService.updateUser(id, name, email);
 	}
 }

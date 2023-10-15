@@ -1,19 +1,19 @@
-package com.example.demo.user;
+package com.example.demo.users;
 
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "`user`")
-public class User {
+@Table(name = "users")
+public class Users {
 	@Id
 	@SequenceGenerator(
-			name = "user_sequence",
-			sequenceName = "user_sequence",
+			name = "users_sequence",
+			sequenceName = "users_sequence",
 			allocationSize = 1
 	)
 	@GeneratedValue(
 			strategy = GenerationType.SEQUENCE,
-			generator = "user_sequence"
+			generator = "users_sequence"
 	)
 	private Long id;
 	
@@ -24,14 +24,14 @@ public class User {
 	@Transient
 	private String field;
 
-	public User() {}
+	public Users() {}
 	
-	public User(String name, String email) {
+	public Users(String name, String email) {
 		this.name = name;
 		this.email = email;
 	}
 	
-	public User(Long id, String name, String email) {
+	public Users(Long id, String name, String email) {
 		this.id = id;
 		this.name = name;
 		this.email = email;
@@ -39,7 +39,7 @@ public class User {
 	
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", name=" + name + ", email=" + email + "]";
+		return "Users [id=" + id + ", name=" + name + ", email=" + email + "]";
 	}
 
 	public Long getId() {
