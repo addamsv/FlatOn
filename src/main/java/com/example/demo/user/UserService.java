@@ -1,5 +1,6 @@
 package com.example.demo.user;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,8 +17,15 @@ public class UserService {
 	public List<User> getUsers() { return userRepository.findAll(); }
 
 	public void addUser(User user) {
+		Optional<User> userCandidate = userRepository.findUserByEmail(user.getEmail());
+
+		if (userCandidate.isPresent()) {
+			throw new IllegalStateException("email already taken");
+		}
+
+		userRepository.save(user);
+
 		System.out.println(user);
-//		userRepository.();
 	}
 
 }
