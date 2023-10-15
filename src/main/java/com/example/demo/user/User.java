@@ -46,9 +46,7 @@ public class User {
 		return id;
 	}
 	
-	public void setId(Long id) {
-		this.id = id;
-	}
+	public void setId(Long id) { this.id = id; }
 	
 	public String getName() {
 		return name;
@@ -66,7 +64,7 @@ public class User {
 		this.email = email;
 	}
 
-	public String getField() { return field; }
+	public String getField() { return "field of " + this.name; }
 
 	public void setField(String field) { this.field = field; }
 }

@@ -16,12 +16,12 @@ public class UserConfig {
                     "a@a.a"
             );
 
-            User alex = new User(
+            User alexandr = new User(
                     "alex",
                     "a@a.a"
             );
 
-            userRepository.saveAll(List.of(sergey, alex));
+            userRepository.saveAll(List.of(sergey, alexandr));
         };
     }
 }
