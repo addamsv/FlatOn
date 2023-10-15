@@ -24,4 +24,8 @@ public class UserController {
 	public void addUser(@RequestBody User user) {
 		userService.addUser(user);
 	}
+	@DeleteMapping(path = "{userId}")
+	public void dellUser(@PathVariable("userId") Long id) {
+		userService.dellUser(id);
+	}
 }

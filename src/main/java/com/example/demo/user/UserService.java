@@ -28,4 +28,13 @@ public class UserService {
 		System.out.println(user);
 	}
 
+	public void dellUser(Long userId) {
+		boolean isUserCandidateExist = userRepository.existsById(userId);
+
+		if (!isUserCandidateExist) {
+			throw new IllegalStateException("user does not  exist");
+		}
+
+		userRepository.deleteById(userId);
+	}
 }
