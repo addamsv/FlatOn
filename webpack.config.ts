@@ -68,6 +68,14 @@ export default (env: EnvVar) =>  {
             !isDevMode && new MiniCssExtractPlugin({
                 filename: 'css/[name].[contenthash:8].css',
                 chunkFilename: 'css/[name].[contenthash:8].css',
+            }),
+
+            new webpack.DefinePlugin({
+                VERSION: JSON.stringify('5fa3b9'),
+                //     PRODUCTION: JSON.stringify(!isDevMode),
+                //     // BROWSER_SUPPORTS_HTML5: true,
+                //     // TWO: '1+1',
+                //     // 'typeof window': JSON.stringify('object'),
             })
         ].filter(Boolean),
 
