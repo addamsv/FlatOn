@@ -13,7 +13,7 @@ export default function buildWebpack (options: BuildOptions):  webpack.Configura
     return {
         mode: mode ?? 'development',
 
-        entry: paths.entry, //path.resolve(__dirname, 'src', 'index.tsx'),
+        entry: paths.entry,
 
         module: {
             rules: buildLoaders(options),
@@ -22,7 +22,7 @@ export default function buildWebpack (options: BuildOptions):  webpack.Configura
         resolve: buildResolvers(options),
 
         output: {
-            path: paths.output, //path.resolve(__dirname, 'dist'),
+            path: paths.output,
             filename: '[name].[contenthash].js',
             clean: true
         },

@@ -10,6 +10,7 @@ import {BuildMode} from "./config/builds/types/types";
 interface EnvVar{
     MODE: BuildMode;
     PORT: number;
+    ANALYZER?: boolean;
 }
 export default (env: EnvVar): webpack.Configuration =>  {
     return  buildWebpack({
@@ -19,6 +20,7 @@ export default (env: EnvVar): webpack.Configuration =>  {
             output: path.resolve(__dirname, 'dist'),
             entry: path.resolve(__dirname, 'src', 'index.tsx'),
             html: path.resolve(__dirname, 'public', 'index.html')
-        }
+        },
+        analyzer: env.ANALYZER
     });
 }
