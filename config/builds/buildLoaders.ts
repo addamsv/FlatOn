@@ -1,9 +1,33 @@
 import {ModuleOptions} from "webpack";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import {BuildOptions} from "./types/types";
+import svgrLoader from "@svgr/webpack";
 
 export default function buildLoaders ({mode}: BuildOptions): ModuleOptions["rules"] {
     const isDevMode = mode === "development";
+
+    const assetLoader = {
+        test: /\.(png|jpg|jpeg|gif)$/i,
+        type: "asset/resource"
+    };
+
+    const svgLoader = {
+        test: /\.svg$/i,
+        use: [{
+            loader: '@svgr/webpack',
+            options: {
+                icon: true,
+                // svgoConfig: {
+                //     plugins: [
+                //         {
+                //             name: 'convertColor',
+                //             params: { currentColor: true }
+                //         }
+                //     ]
+                // }
+            }
+        }]
+    };
 
     const cssLoader = {
         test: /\.css$/i,
@@ -39,5 +63,5 @@ export default function buildLoaders ({mode}: BuildOptions): ModuleOptions["rule
     };
 
     // order matter
-    return [cssLoader, scssLoader, tsxLoader];
+    return [svgLoader, assetLoader, cssLoader, scssLoader, tsxLoader];
 }
