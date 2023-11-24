@@ -1,1 +1,1 @@
-declare const VERSION: string;
+declare const ENV_VERSION: string;
