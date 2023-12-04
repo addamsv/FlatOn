@@ -1,5 +1,9 @@
 <h1 align="center">THE FLAT ON PROJECT</h1>
-
+в случае использования бэкэнда - необходимо добавить переменную окружения
+в CI-pipeline или на самом фронт хостинге:
+<br>
+"build:prod": "webpack --env MODE=production --env ENV_SERVER_PATH=real-backend-url",
+<br>
 <h2 align="center">Android App</h2>
 <p align="center">
 <a href="./README_FILES/main_activity.png"><img src="./README_FILES/main_activity.png" width="121px" height="267px"></a>

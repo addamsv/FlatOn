@@ -1,7 +1,8 @@
 import {ModuleOptions} from "webpack";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import ReactRefreshTypeScript from "react-refresh-typescript";
 import {BuildOptions} from "./types/types";
-import svgrLoader from "@svgr/webpack";
+
 
 export default function buildLoaders ({mode}: BuildOptions): ModuleOptions["rules"] {
     const isDevMode = mode === "development";
@@ -58,7 +59,17 @@ export default function buildLoaders ({mode}: BuildOptions): ModuleOptions["rule
 
     const tsxLoader = {
         test: /\.tsx?$/,
-        use: 'ts-loader',
+        use: [
+            {
+                options: {
+                    getCustomTransformers: {
+                        before: [isDevMode, ReactRefreshTypeScript()].filter(Boolean)
+                    },
+                    transpileOnly: isDevMode // not check, if true
+                },
+                loader: 'ts-loader',
+            }
+        ],
         exclude: /node_modules/,
     };
 

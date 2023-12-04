@@ -5,20 +5,24 @@ import gitImg from "@/assets/githublogo.png";
 import phoneImg from "@/assets/phoneImg.jpg";
 import Like from "@/assets/like.svg";
 
+const isTypesOk = (a: string) => 'ok';
 export const App = () => {
     const [value, setValue] = useState(0);
 
     const inc = () => setValue((prev) => prev + 1);
 
+    isTypesOk('1');
+
     return (
         <div>
-            <h1>The Flat On App</h1>
+            <h1>The Flat O App</h1>
             <Link to={'/'}>main</Link>
             <br/>
             <Link to={'/about'}>about</Link>
             <br/>
             <Link to={'/shop'}>shop</Link>
-            <p className={classes.paragraph}>ver: {ENV_VERSION}</p>
+            <p className={classes.paragraph}>SERVER PATH: {ENV_SERVER_PATH}</p>
+            <p className={classes.paragraph}>VERSION: {ENV_VERSION}</p>
             <span>{value}</span>
             <div className={classes.btn} onClick={inc}>
                 <Like width={50} height={50} fill={'red'} />

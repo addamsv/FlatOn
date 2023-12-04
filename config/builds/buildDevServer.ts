@@ -6,6 +6,7 @@ export default function buildDevServer({port}: BuildOptions): DevServerConfigura
         port: port ?? 5500,
         open: true,
         // just for devServer
-        historyApiFallback: true
+        historyApiFallback: true,
+        hot: true // -> hot module replacement with React you should use React fast refresh
     };
 }
