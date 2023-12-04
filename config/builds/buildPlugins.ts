@@ -5,6 +5,8 @@ import {BuildOptions} from "./types/types";
 import {BundleAnalyzerPlugin} from "webpack-bundle-analyzer";
 import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin";
 import ReactRefreshPlugin from "@pmmmwh/react-refresh-webpack-plugin";
+import path from "path";
+import CopyPlugin from "copy-webpack-plugin";
 
 export default function buildPlugins({mode, paths, analyzer}: BuildOptions): Configuration["plugins"] {
     const isDevMode = mode === "development";
@@ -13,7 +15,8 @@ export default function buildPlugins({mode, paths, analyzer}: BuildOptions): Con
 
     const plugins: Configuration["plugins"] = [
         new  HtmlWebpackPlugin({
-            template: paths.html //path.resolve(__dirname, 'public', 'index.html'),
+            template: paths.html, //path.resolve(__dirname, 'public', 'index.html'),
+            favicon: path.resolve(paths.public, 'favicon.ico')
         }),
 
         new webpack.DefinePlugin({
@@ -40,6 +43,12 @@ export default function buildPlugins({mode, paths, analyzer}: BuildOptions): Con
         plugins.push(new MiniCssExtractPlugin({
             filename: 'css/[name].[contenthash:8].css',
             chunkFilename: 'css/[name].[contenthash:8].css',
+        }));
+
+        plugins.push(new CopyPlugin({
+            patterns: [
+                {from: path.resolve(paths.public, 'locales'), to: path.resolve(paths.output, 'locales')}
+            ]
         }));
     }
 

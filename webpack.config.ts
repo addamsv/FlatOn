@@ -21,6 +21,7 @@ export default (env: EnvVar): webpack.Configuration =>  {
             output: path.resolve(__dirname, 'dist'),
             entry: path.resolve(__dirname, 'src', 'index.tsx'),
             html: path.resolve(__dirname, 'public', 'index.html'),
+            public: path.resolve(__dirname, 'public'),
             src: path.resolve(__dirname, 'src'),
         },
         analyzer: env.ANALYZER
