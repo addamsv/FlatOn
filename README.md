@@ -1,19 +1,37 @@
-<h1 align="center">THE FLAT ON PROJECT</h1>
+<h1 align="center">На каком этаже квартира</h1>
+Заказ моего товарища, занимающегося замером дверей, которому часто приходится ездить по различным адресам
+<br><br>
+приложение вычисляет этаж по таким данным как № первой квартиры в подъезде, № подъезда...
+<br><br>
+<h2 align="center">Android App</h2>
+<p align="center">
+<a href="./.github/screenshots/main_activity.png"><img src="./.github/screenshots/main_activity.png" width="121px" height="267px"></a>
+<a href="./.github/screenshots/diapason_activity.png"><img src="./.github/screenshots/diapason_activity.png" width="121px" height="267px"></a>
+<a href="./.github/screenshots/address_activity.png"><img src="./.github/screenshots/address_activity.png" width="121px" height="267px"></a>
+<a href="./.github/screenshots/entrance_activity.png"><img src="./.github/screenshots/entrance_activity.png" width="121px" height="267px"></a><br>
+<a href="https://github.com/addamsv/FlatOn/tree/android-prod"><img src="./.github/screenshots/see_more.png" width="104px" height="43px"></a></p><br><br>
+
+<h2 align="center">Backend</h2>
 в случае использования бэкэнда - необходимо добавить переменную окружения
 в CI-pipeline или на самом фронт хостинге:
 <br>
 "build:prod": "webpack --env MODE=production --env ENV_SERVER_PATH=real-backend-url",
 <br>
-<h2 align="center">Android App</h2>
+
+<h2 align="center">Nest.js App</h2>
 <p align="center">
-<a href="./README_FILES/main_activity.png"><img src="./README_FILES/main_activity.png" width="121px" height="267px"></a>
-<a href="./README_FILES/diapason_activity.png"><img src="./README_FILES/diapason_activity.png" width="121px" height="267px"></a>
-<a href="./README_FILES/address_activity.png"><img src="./README_FILES/address_activity.png" width="121px" height="267px"></a>
-<a href="./README_FILES/entrance_activity.png"><img src="./README_FILES/entrance_activity.png" width="121px" height="267px"></a><br>
-<a href="https://github.com/addamsv/FlatOn/tree/android-prod"><img src="./README_FILES/see_more.png" width="104px" height="43px"></a></p><br><br>
+  <a href="https://github.com/addamsv/FlatOn/tree/backend-nest-prod">
+    <img src="./.github/screenshots/see_more.png" width="104px" height="43px">
+  </a>
+</p>
 
-<h2 align="center">Node.js Nest.js BackEnd</h2>
-<h4 align="center"><a href="https://github.com/addamsv/FlatOn/tree/backend-nest-prod"><img src="./README_FILES/see_more.png" width="104px" height="43px"></a></h4><br><br>
+<br><br>
 
-<h2 align="center">Java Spring Boot, Hibernate JPA BackEnd</h2>
-<h4 align="center"><a href="https://github.com/addamsv/FlatOn/tree/backen-spring-prod"><img src="./README_FILES/see_more.png" width="104px" height="43px"></a></h4><br><br>
+<h2 align="center">Java Spring Boot App</h2>
+<p align="center">
+  <a href="https://github.com/addamsv/FlatOn/tree/backen-spring-prod">
+    <img src="./.github/screenshots/see_more.png" width="104px" height="43px">
+  </a>
+</p>
+
+<br><br>
