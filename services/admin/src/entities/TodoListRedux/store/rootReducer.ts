@@ -9,4 +9,7 @@ const rootReducer = combineReducers({
 });
 
 // @ts-ignore
-export const store = createStore(rootReducer, composeWithDevTools());
+export const store = createStore(
+  rootReducer,
+  __ENV__ === "development" ? composeWithDevTools() : undefined
+);
