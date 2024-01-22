@@ -1,6 +1,12 @@
 import { createContext, useReducer } from "react";
-import { initialState, reducer } from "./reducer";
-import { ChildPropsT, actions } from "../types";
+import {
+  addTodoAction,
+  initialState,
+  reducer,
+  remTodoAction,
+  togTodoAction,
+} from "./reducer";
+import { ChildPropsT } from "../types";
 
 export const TodoListContext = createContext(undefined);
 
@@ -11,15 +17,15 @@ export const Provider = ({ children }: ChildPropsT) => {
     todoList: state.todoList,
 
     addTodoItem: (todoItemLabel: string) => {
-      dispatch({ type: actions.ADD_TODO_ITEM, todoItemLabel });
+      dispatch(addTodoAction(todoItemLabel)); //{ type: ADD_TODO_ITEM, todoItemLabel }
     },
 
     removeTodoItem: (todoItemId: string) => {
-      dispatch({ type: actions.REMOVE_TODO_ITEM, todoItemId });
+      dispatch(remTodoAction(todoItemId)); //{ type: REMOVE_TODO_ITEM, todoItemId }
     },
 
     markAsCompleted: (todoItemId: string) => {
-      dispatch({ type: actions.TOGGLE_COMPLETED, todoItemId });
+      dispatch(togTodoAction(todoItemId)); //{ type: TOGGLE_COMPLETED, todoItemId }
     },
   };
 

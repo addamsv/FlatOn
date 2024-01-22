@@ -2,7 +2,7 @@ import { log } from "console";
 
 type ActionT = {
   type: string;
-  payload: number;
+  payload: string;
 };
 
 type StateT = {
@@ -23,39 +23,56 @@ export const defaultSate: TodoListStateT = {
   todoList: [],
 };
 
-export const todoListReducer = (state = defaultSate, action: any) => {
-  switch (action.type) {
-    case "REMOVE_TODO_ITEM": {
+const REMOVE_TODO_ITEM = "REMOVE_TODO_ITEM";
+const ADD_TODO_ITEM = "ADD_TODO_ITEM";
+const TOGGLE_COMPLETED = "TOGGLE_COMPLETED";
+
+export const addTodoAction = (payload: string) => ({
+  type: ADD_TODO_ITEM,
+  payload,
+});
+
+export const remTodoAction = (payload: string) => ({
+  type: REMOVE_TODO_ITEM,
+  payload,
+});
+
+export const togTodoAction = (payload: string) => ({
+  type: TOGGLE_COMPLETED,
+  payload,
+});
+
+export const todoListReducer = (state = defaultSate, action: ActionT) => {
+  const { payload, type } = action;
+
+  switch (type) {
+    case REMOVE_TODO_ITEM: {
       const filteredTodoItem = state.todoList.filter(
-        (todoItem) => todoItem.id !== action.payload // action.todoItemId
+        (todoItem) => todoItem.id !== payload
       );
       return { todoList: filteredTodoItem };
     }
 
-    case "ADD_TODO_ITEM": {
+    case ADD_TODO_ITEM: {
       return {
         todoList: [
           ...state.todoList,
           {
             id: new Date().valueOf(),
-            label: action.payload, // action.todoItemLabel,
+            label: payload,
             completed: false,
           },
         ],
       };
     }
 
-    case "TOGGLE_COMPLETED": {
+    case TOGGLE_COMPLETED: {
       const updatedTodoList = state.todoList.map((todoItem) =>
-        todoItem.id === action.payload // action.todoItemId
+        todoItem.id === payload
           ? { ...todoItem, completed: !todoItem.completed }
           : todoItem
       );
       return { todoList: updatedTodoList };
-    }
-
-    case "GET_TODO_ITEMS": {
-      return { ...state, cash: 0 };
     }
 
     default:

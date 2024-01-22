@@ -15,18 +15,20 @@ export const TodoList = (props: PropsT) => {
 
   return (
     <ul>
-      {todoList.map(({ completed, id, label }: TodoItemT) => (
-        <li
-          key={id}
-          onClick={() => markAsCompleted(id)}
-          className={`todoItem ${completed ? "completed" : ""}`}
-        >
-          {label}
-          <button className="delete" onClick={() => removeTodoItem(id)}>
-            X
-          </button>
-        </li>
-      ))}
+      {todoList.length
+        ? todoList.map(({ completed, id, label }: TodoItemT) => (
+            <li
+              key={id}
+              onClick={() => markAsCompleted(id)}
+              className={`todoItem ${completed ? "completed" : ""}`}
+            >
+              {label}
+              <button className="delete" onClick={() => removeTodoItem(id)}>
+                X
+              </button>
+            </li>
+          ))
+        : "there are not any items"}
     </ul>
   );
 };
