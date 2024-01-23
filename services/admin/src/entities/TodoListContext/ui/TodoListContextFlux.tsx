@@ -1,8 +1,8 @@
-import { Provider } from "./Provider";
-import { TodoListApp } from "./TodoListApp";
+import { Provider } from "../store/Provider";
+import { TodoListHOC } from "./TodoListHOC";
 
 export const TodoListContextFlux = () => (
   <Provider>
-    <TodoListApp />
+    <TodoListHOC />
   </Provider>
 );

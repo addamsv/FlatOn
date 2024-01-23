@@ -1,9 +1,9 @@
 import { Provider } from "react-redux";
-import { TodoListApp } from "./TodoListApp";
 import { store } from "../store";
+import { TodoListHOC } from "./TodoListHOC";
 
 export const TodoListRedux = () => (
   <Provider store={store}>
-    <TodoListApp />
+    <TodoListHOC />
   </Provider>
 );

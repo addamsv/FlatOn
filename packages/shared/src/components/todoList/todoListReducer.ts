@@ -1,12 +1,6 @@
-import { log } from "console";
-
 type ActionT = {
   type: string;
   payload: any; // string;
-};
-
-type StateT = {
-  cash: number;
 };
 
 export type TodoItemT = {

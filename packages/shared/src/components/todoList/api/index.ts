@@ -1,4 +1,4 @@
-import { addManyTodoAction } from "@/entities/TodoListRedux/store/todoListReducer";
+import { addManyTodoAction } from "../todoListReducer";
 
 export const fetchTodo = () => {
   return (dispatch: any) =>
@@ -7,13 +7,12 @@ export const fetchTodo = () => {
       .then((json) => dispatch(addManyTodoAction(json)));
 };
 
-// https://jsonplaceholder.typicode.com
+// MocServer Guide
+// https://jsonplaceholder.typicode.com/guide/
+// https://jsonplaceholder.typicode.com/users/1/todos
 
-// Server
+// My own MocServer
 // https://my-json-server.typicode.com/addamsv/FlatOn
-
 // Endpoint: Posts
 // https://my-json-server.typicode.com/addamsv/FlatOn/posts
 // https://my-json-server.typicode.com/addamsv/FlatOn/posts/1
-
-// https://jsonplaceholder.typicode.com/users/1/todos
