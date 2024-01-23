@@ -5,7 +5,8 @@
   "posts": [
     {
       "id": 1,
-      "title": "hello"
+      "label": "Lern 2d foreign language",
+      "completed": false
     }
   ]
 }
