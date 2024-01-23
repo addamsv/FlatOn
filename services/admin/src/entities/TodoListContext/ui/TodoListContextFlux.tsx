@@ -1,4 +1,4 @@
-import { Provider } from "../store/Provider";
+import { Provider } from "./Provider";
 import { TodoListApp } from "./TodoListApp";
 
 export const TodoListContextFlux = () => (

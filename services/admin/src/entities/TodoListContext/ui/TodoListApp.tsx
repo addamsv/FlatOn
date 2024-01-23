@@ -1,6 +1,6 @@
 import { AddTodo } from "@packages/shared/src/components/AddTodo";
 import { TodoList } from "@packages/shared/src/components/TodoList";
-import { useTodoList } from "../store/useTodoList";
+import { useTodoList } from "./useTodoList";
 
 export function TodoListApp() {
   const { addTodoItem, ...props } = useTodoList();

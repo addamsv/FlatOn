@@ -2,30 +2,34 @@ import { createContext, useReducer } from "react";
 import {
   addTodoAction,
   initialState,
-  reducer,
+  todoListReducer,
   remTodoAction,
   togTodoAction,
-} from "./reducer";
+} from "../../TodoListRedux/store/todoListReducer";
 import { ChildPropsT } from "../types";
 
 export const TodoListContext = createContext(undefined);
 
 export const Provider = ({ children }: ChildPropsT) => {
-  const [state, dispatch] = useReducer(reducer, undefined, () => initialState);
+  const [state, dispatch] = useReducer(
+    todoListReducer,
+    undefined,
+    () => initialState
+  );
 
   const value = {
     todoList: state.todoList,
 
     addTodoItem: (todoItemLabel: string) => {
-      dispatch(addTodoAction(todoItemLabel)); //{ type: ADD_TODO_ITEM, todoItemLabel }
+      dispatch(addTodoAction(todoItemLabel));
     },
 
     removeTodoItem: (todoItemId: string) => {
-      dispatch(remTodoAction(todoItemId)); //{ type: REMOVE_TODO_ITEM, todoItemId }
+      dispatch(remTodoAction(todoItemId));
     },
 
     markAsCompleted: (todoItemId: string) => {
-      dispatch(togTodoAction(todoItemId)); //{ type: TOGGLE_COMPLETED, todoItemId }
+      dispatch(togTodoAction(todoItemId));
     },
   };
 

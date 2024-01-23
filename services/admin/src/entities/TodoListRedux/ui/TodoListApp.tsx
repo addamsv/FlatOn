@@ -6,6 +6,7 @@ import {
   remTodoAction,
   togTodoAction,
 } from "../store/todoListReducer";
+import { fetchTodo } from "@/api";
 
 export const TodoListApp = () => {
   const cash = useSelector((state: any) => state.cash.cash);
@@ -34,6 +35,10 @@ export const TodoListApp = () => {
     dispatch(togTodoAction(todoItemId));
   };
 
+  const addManyValueHandler = () => {
+    fetchTodo()(dispatch);
+  };
+
   return (
     <div>
       <div
@@ -58,6 +63,7 @@ export const TodoListApp = () => {
       >
         <h2>Todo List Redux</h2>
         <AddTodo addTodoItem={addTodoItem} />
+        <button onClick={addManyValueHandler}>Add from server</button>
         <TodoList
           todoList={todoList}
           removeTodoItem={removeTodoItem}

@@ -2,7 +2,7 @@ import { log } from "console";
 
 type ActionT = {
   type: string;
-  payload: string;
+  payload: any; // string;
 };
 
 type StateT = {
@@ -19,16 +19,22 @@ export type TodoListStateT = {
   todoList: TodoItemT[];
 };
 
-export const defaultSate: TodoListStateT = {
+export const initialState: TodoListStateT = {
   todoList: [],
 };
 
 const REMOVE_TODO_ITEM = "REMOVE_TODO_ITEM";
 const ADD_TODO_ITEM = "ADD_TODO_ITEM";
+const ADD_MANY_TODO_ITEMS = "ADD_MANY_TODO_ITEMS";
 const TOGGLE_COMPLETED = "TOGGLE_COMPLETED";
 
 export const addTodoAction = (payload: string) => ({
   type: ADD_TODO_ITEM,
+  payload,
+});
+
+export const addManyTodoAction = (payload: any) => ({
+  type: ADD_MANY_TODO_ITEMS,
   payload,
 });
 
@@ -42,10 +48,16 @@ export const togTodoAction = (payload: string) => ({
   payload,
 });
 
-export const todoListReducer = (state = defaultSate, action: ActionT) => {
+export const todoListReducer = (state = initialState, action: ActionT) => {
   const { payload, type } = action;
 
   switch (type) {
+    case ADD_MANY_TODO_ITEMS: {
+      return {
+        todoList: [...state.todoList, ...payload],
+      };
+    }
+
     case REMOVE_TODO_ITEM: {
       const filteredTodoItem = state.todoList.filter(
         (todoItem) => todoItem.id !== payload
@@ -58,7 +70,7 @@ export const todoListReducer = (state = defaultSate, action: ActionT) => {
         todoList: [
           ...state.todoList,
           {
-            id: new Date().valueOf(),
+            id: Date.now(),
             label: payload,
             completed: false,
           },
