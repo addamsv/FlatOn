@@ -11,10 +11,14 @@ export type TodoItemT = {
 
 export type TodoListStateT = {
   todoList: TodoItemT[];
+  isLoading?: boolean;
+  error?: string | null;
 };
 
 export const initialState: TodoListStateT = {
   todoList: [],
+  isLoading: false,
+  error: null,
 };
 
 const REMOVE_TODO_ITEM = "REMOVE_TODO_ITEM";

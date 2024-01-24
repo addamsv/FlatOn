@@ -2,7 +2,7 @@ import { ReactNode, createContext, useReducer } from "react";
 import {
   initialState,
   todoListReducer,
-} from "@packages/shared/src/components/todoList/todoListReducer";
+} from "@packages/shared/src/components/todoList";
 
 export const TodoListContext = createContext(undefined);
 

@@ -1,7 +1,11 @@
-import { AddTodo } from "@packages/shared/src/components/todoList/AddTodo";
-import { TodoList } from "@packages/shared/src/components/todoList/TodoList";
-import { addTodoAction, remTodoAction, togTodoAction } from "./todoListReducer";
-import { fetchTodo } from "./api";
+import { AddTodo } from "./AddTodo";
+import { TodoList } from "./TodoList";
+import {
+  addTodoAction,
+  remTodoAction,
+  togTodoAction,
+} from "../store/todoListReducer";
+import { fetchTodo } from "../api";
 import style from "./styles.module.scss";
 
 export const TodoListApp = ({ todoList, dispatch }: any) => {

@@ -1,4 +1,4 @@
-import { TodoListApp } from "@packages/shared/src/components/todoList/TodoListApp";
+import { TodoListApp } from "@packages/shared/src/components/todoList";
 import { useTodoList } from "../store/useTodoList";
 
 export const TodoListHOC = () => {

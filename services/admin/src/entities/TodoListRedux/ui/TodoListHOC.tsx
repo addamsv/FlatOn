@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { TodoListApp } from "@packages/shared/src/components/todoList/TodoListApp";
+import { TodoListApp } from "@packages/shared/src/components/todoList";
 
 export const TodoListHOC = () => {
   const todoList = useSelector((state: any) => state.todo.todoList);

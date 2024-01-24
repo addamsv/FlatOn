@@ -1,4 +1,4 @@
-import { addManyTodoAction } from "../todoListReducer";
+import { addManyTodoAction } from "../store/todoListReducer";
 
 export const fetchTodo = () => {
   return (dispatch: any) =>
