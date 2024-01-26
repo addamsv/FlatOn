@@ -27,7 +27,7 @@
   "posts": [
     {
       "id": 1,
-      "label": "Lern 2d foreign language",
+      "title": "Lern 2d foreign language",
       "completed": false
     }
   ]
