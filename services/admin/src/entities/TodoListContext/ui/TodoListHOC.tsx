@@ -1,8 +1,8 @@
 import { TodoListApp } from "@packages/shared/src/components/todoList";
-import { useTodoList } from "../store/useTodoList";
+import { useTodoList } from "../hooks/useTodoList";
 
 export const TodoListHOC = () => {
-  const { todoList, dispatch } = useTodoList();
+  const { todo, dispatch } = useTodoList();
 
-  return <TodoListApp dispatch={dispatch} todoList={todoList} />;
+  return <TodoListApp dispatch={dispatch} todo={todo} />;
 };

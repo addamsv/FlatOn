@@ -1,24 +1,21 @@
-import { ReactNode, createContext, useReducer } from "react";
+import { createContext, useReducer } from "react";
 import {
-  initialState,
+  initialTodoListState,
   todoListReducer,
 } from "@packages/shared/src/components/todoList";
+import { ProviderT } from "../types";
 
 export const TodoListContext = createContext(undefined);
 
-type ProviderT = {
-  children: ReactNode;
-};
-
 export const Provider = (props: ProviderT) => {
-  const [state, dispatch] = useReducer(
+  const [todo, dispatch] = useReducer(
     todoListReducer,
     undefined,
-    () => initialState
+    () => initialTodoListState
   );
 
   const value = {
-    todoList: state.todoList,
+    todo,
     dispatch,
   };
 

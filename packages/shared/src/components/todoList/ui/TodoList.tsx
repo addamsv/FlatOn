@@ -1,11 +1,13 @@
 export type TodoItemT = {
   id: string;
-  label: string;
+  title: string;
   completed: boolean;
 };
 
 export type PropsT = {
   todoList: TodoItemT[];
+  // limit: number;
+  page: number;
   removeTodoItem: (id: string) => void;
   markAsCompleted: (id: string) => void;
 };
@@ -16,13 +18,13 @@ export const TodoList = (props: PropsT) => {
   return (
     <ul>
       {todoList.length
-        ? todoList.map(({ completed, id, label }: TodoItemT) => (
+        ? todoList.map(({ completed, id, title }: TodoItemT) => (
             <li
               key={id}
               onClick={() => markAsCompleted(id)}
               className={`todoItem ${completed ? "completed" : ""}`}
             >
-              {label}
+              {`${id} - ${title}`}
               <button className="delete" onClick={() => removeTodoItem(id)}>
                 X
               </button>

@@ -1,4 +1,10 @@
 // Todo List Public API
 
-export { todoListReducer, initialState } from "./store/todoListReducer";
+export {
+  todoListReducer,
+  initialTodoListState,
+} from "./store/reducers/todoListReducer";
+
+export { userReducer } from "./store/reducers/userReducer";
+
 export { TodoListApp } from "./ui/TodoListApp";

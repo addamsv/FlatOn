@@ -1,10 +1,13 @@
 import { createStore, combineReducers, applyMiddleware } from "redux";
 import { composeWithDevTools } from "@redux-devtools/extension";
 import { thunk } from "redux-thunk";
-import { todoListReducer } from "@packages/shared/src/components/todoList";
+import {
+  todoListReducer,
+  userReducer,
+} from "@packages/shared/src/components/todoList";
 
-const rootReducer = combineReducers({
-  // cash: cashReducer,
+export const rootReducer = combineReducers({
+  user: userReducer,
   todo: todoListReducer,
 });
 
