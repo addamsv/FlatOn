@@ -39,7 +39,7 @@ public class Users {
 	
 	@Override
 	public String toString() {
-		return "Users [id=" + id + ", name=" + name + ", email=" + email + "]";
+		return "Users{id=" + id + ", name=" + name + ", email=" + email + "}";
 	}
 
 	public Long getId() {
