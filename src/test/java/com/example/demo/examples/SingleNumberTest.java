@@ -1,12 +1,11 @@
-package com.example.demo;
+package com.example.demo.examples;
 
-import com.example.demo.examples.SingleNumber;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 
-class DemoApplicationTest {
+class SingleNumberTest {
     @Test
     void singleNumber1() {
         assertThat(SingleNumber.singleNumber(new int[]{2,2,1})).isEqualTo(1);
