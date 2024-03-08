@@ -3,19 +3,11 @@
 
  Calculate The Stage Of The Flat
 
- <h2>BackEnd</h2>
- Node.js Nest.js App
- <br><br>
+<h1>Java Spring Boot Backend API</h1>
+<h2>Documentation</h2>
+<p>
+  <img src="./.github/swagger.png" width="200" alt="Test" />
+</p>
 
- <a href="https://github.com/addamsv/FlatOn/tree/backend-nest-prod"><img src="./.github/see_more.png" width="104px" height="43px"></a><br><br>
 
- <h2>Android App</h2>
- <a href="./.github/main_activity.png"><img src="./.github/main_activity.png" width="121px" height="267px"></a>
- <a href="./.github/diapason_activity.png"><img src="./.github/diapason_activity.png" width="121px" height="267px"></a>
- <a href="./.github/address_activity.png"><img src="./.github/address_activity.png" width="121px" height="267px"></a>
- <a href="./.github/entrance_activity.png"><img src="./.github/entrance_activity.png" width="121px" height="267px"></a>
- 
- <br>
- 
- <a href="https://github.com/addamsv/FlatOn/tree/android-prod"><img src="./.github/see_more.png" width="104px" height="43px"></a></h4><br><br>
-</div>
+ <a href="https://github.com/addamsv/FlatOn/tree/backend-nest-prod"><img src="./.github/see_more_.png" width="104px" height="43px"></a><br><br>
