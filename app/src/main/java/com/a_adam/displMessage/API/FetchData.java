@@ -24,8 +24,8 @@ public class FetchData implements Callable<String> {
         try {
             URL url = new URL(uri);
             httpURLConnection = (HttpURLConnection) url.openConnection();
+        System.out.println(url);
             httpURLConnection.connect();
-
             InputStream inputStream = httpURLConnection.getInputStream();
             bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
             StringBuilder stringBuffer = new StringBuilder();
@@ -50,6 +50,8 @@ public class FetchData implements Callable<String> {
                 catch (IOException ignored) {}
             }
         }
+
+        System.out.println(value);
         return value;
     }
 }

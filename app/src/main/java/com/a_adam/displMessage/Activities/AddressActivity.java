@@ -1,7 +1,9 @@
 package com.a_adam.displMessage.Activities;
 
-import static com.a_adam.displMessage.API.Constants.BRAND_ROUTE;
+import static com.a_adam.displMessage.API.Constants.FLAT_ROUTE;
 import static com.a_adam.displMessage.API.Constants.HOST_NAME;
+import static com.a_adam.displMessage.API.Constants.PORT;
+import static com.a_adam.displMessage.API.Constants.REST;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -41,25 +43,29 @@ public class AddressActivity extends AppCompatActivity {
 
     public void onBackButtonClick(View view) { startActivityWith(MainActivity.class); }
 
-    public void onOkButtonClick(View view) {
+    public void onSendButtonClick(View view) {
         houseList.clear();
         ExecutorService service = Executors.newFixedThreadPool(3);
-        Future<String> stringData = service.submit(new FetchData(HOST_NAME + BRAND_ROUTE));
+        Future<String> stringData = service.submit(new FetchData(
+                HOST_NAME + PORT + REST + FLAT_ROUTE + "?theFlat=413"
+        ));
         try {
             JSONObject jsonObject;
             JSONArray jsonArray = null;
+//            try {
+//                jsonObject = new JSONObject(stringData.get());
+//                jsonArray = jsonObject.getJSONArray("entranceList");
+//            } catch (JSONException e) {}
             try {
-                jsonObject = new JSONObject(stringData.get());
-                jsonArray = jsonObject.getJSONArray("rows");
-            } catch (JSONException e) {}
-            try {
-                if (jsonArray == null) {
+//                if (jsonArray == null) {
                     jsonArray = new JSONArray(stringData.get());
-                }
+//                }
                 String line = "";
                 for (int i = 0; i < jsonArray.length(); i++) {
-                    line = new JSONObject(jsonArray.get(i).toString()).getString("name");
+                    line = new JSONObject(jsonArray.get(i).toString())
+                            .getString("theFlat");
                     houseList.add(line);
+                    System.out.println(houseList);
                 }
             } catch (JSONException e) {}
         } catch (ExecutionException e) {

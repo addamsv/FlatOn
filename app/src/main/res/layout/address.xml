@@ -234,7 +234,7 @@
             android:textColor="#ffffff"
             android:textSize="12sp"
             android:text="ok"
-            android:onClick="onOkButtonClick"
+            android:onClick="onSendButtonClick"
             />
 
     </RelativeLayout>
