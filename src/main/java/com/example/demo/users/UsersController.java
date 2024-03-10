@@ -2,12 +2,19 @@ package com.example.demo.users;
 
 import java.util.List;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+@Tag(name = "Users")
 @RestController
 @RequestMapping("api/v1/users")
 @CrossOrigin("*")
+//@SecurityRequirement(name = "BearerAuth")
+@SecurityRequirement(name = "BasicAuth")
 public class UsersController {
 	private final UsersService usersService;
 
@@ -16,21 +23,44 @@ public class UsersController {
 		this.usersService = usersService;
 	}
 
+	@Operation(
+			description = "Get endpoint",
+			summary = "Get all users",
+			responses = {
+					@ApiResponse(
+							description = "Success",
+							responseCode = "200",
+							useReturnTypeSchema = true
+					)
+			}
+	)
 	@GetMapping
 	public List<Users> getUsers() {
 		return usersService.getUsers();
 	}
 
+	@Operation(
+			description = "Post",
+			summary = "Add user"
+	)
 	@PostMapping
 	public void addUser(@RequestBody Users user) {
 		usersService.addUser(user);
 	}
 
+	@Operation(
+			description = "Delete",
+			summary = "Remove user"
+	)
 	@DeleteMapping(path = "{userId}")
 	public void dellUser(@PathVariable("userId") Long id) {
 		usersService.dellUser(id);
 	}
 
+	@Operation(
+			description = "Update",
+			summary = "Update user"
+	)
 	@PutMapping(path = "{userId}")
 	public void updateUser(
 			@PathVariable("userId") Long id,

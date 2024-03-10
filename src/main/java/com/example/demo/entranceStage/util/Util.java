@@ -1,4 +1,4 @@
-package com.example.demo.flatOn.util;
+package com.example.demo.entranceStage.util;
 
 public class Util {
     public static final String EMPTY_STR = "";

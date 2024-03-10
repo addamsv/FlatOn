@@ -1,0 +1,62 @@
+[
+  {
+    "id":1,
+    "theFlat": "413",
+    "floors": "5",
+    "theFloor": "397",
+    "lFlat":  "432",
+    "hFlat":  "1",
+    "onFloor": "4",
+    "flatsOnFloor": "12",
+    "entrance": "9",
+    "entranceList": [
+      {
+        "lFlat": 429,
+        "flatStackOnFloor": "4 кв/эт",
+        "hFlat": 432,
+        "floorNum": "9"
+      },
+      {
+        "lFlat": 425,
+        "flatStackOnFloor": "4 кв/эт",
+        "hFlat": 428,
+        "floorNum": "8"},
+      {
+        "lFlat": 421,
+        "flatStackOnFloor": "4 кв/эт",
+        "hFlat": 424,
+        "floorNum": "7"},
+      {
+        "lFlat": 417,
+        "flatStackOnFloor": "4 кв/эт",
+        "hFlat": 420,
+        "floorNum": "6"},
+      {
+        "lFlat": 413,
+        "flatStackOnFloor": "4 кв/эт",
+        "hFlat": 416,
+        "floorNum": "5"},
+      {
+        "lFlat": 409,
+        "flatStackOnFloor": "4 кв/эт",
+        "hFlat": 412,
+        "floorNum": "4"},
+      {
+        "lFlat": 405,
+        "flatStackOnFloor": "4 кв/эт",
+        "hFlat": 408,
+        "floorNum": "3"},
+      {
+        "lFlat": 401,
+        "flatStackOnFloor": "4 кв/эт",
+        "hFlat": 404,
+        "floorNum": "2"},
+      {
+        "lFlat": 397,
+        "flatStackOnFloor": "4 кв/эт",
+        "hFlat": 400,
+        "floorNum": "1"
+      }
+    ]
+  }
+]

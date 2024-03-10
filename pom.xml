@@ -8,11 +8,11 @@
 		<version>3.1.4</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.internet-store</groupId>
-	<artifactId>internet-store</artifactId>
+	<groupId>com.flat-on</groupId>
+	<artifactId>flaton-api</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>internet-store</name>
-	<description>Demo internet store project for Spring Boot</description>
+	<name>flat-on-api</name>
+	<description>Backend API for FlatOn</description>
 	<properties>
 		<java.version>17</java.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -55,10 +55,10 @@
 			<scope>runtime</scope>
 		</dependency>
 
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-security</artifactId>
-		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>org.springframework.boot</groupId>-->
+<!--			<artifactId>spring-boot-starter-security</artifactId>-->
+<!--		</dependency>-->
 
 		<dependency>
 			<groupId>org.springdoc</groupId>
