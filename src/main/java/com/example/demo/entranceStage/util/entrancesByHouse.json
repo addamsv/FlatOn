@@ -1,0 +1,41 @@
+[
+  {
+    "state": "Беларусь",
+    "town": "Минск",
+    "street": "пр. Правды",
+    "house": 60,
+    "entrances": 12,
+    "row": [
+      {
+        "entrance": 2,
+        "exception": "arch",
+        "lFlat":  36,
+        "hFlat":  39,
+        "flatsOnFloorExc": [3,3,4,4,4,4,4,4,4],
+        "floors": 9
+      },
+      {
+        "entrance": 3,
+        "exception": "arch",
+        "lFlat":  36,
+        "hFlat":  39,
+        "flatsOnFloorExc": [3,3,4,4,4,4,4,4,4],
+        "floors": 9
+      },
+      {
+        "entrance": 11,
+        "lFlat":  361,
+        "hFlat":  396,
+        "flatsOnFloor": 4,
+        "floors": 9
+      },
+      {
+        "entrance": 12,
+        "lFlat":  397,
+        "hFlat":  432,
+        "flatsOnFloor": 4,
+        "floors": 9
+      }
+    ]
+  }
+]
